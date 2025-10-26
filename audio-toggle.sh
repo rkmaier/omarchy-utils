@@ -12,7 +12,4 @@ else
   pactl set-default-sink "$BT"
   hyprctl notify 1 5000 "rgb(40a02b)" "Switched to [BLUETOOTH] output"
 fi
-
-for i in $(pactl list short sink-inputs | awk '{print $1}'); do
-  pactl move-sink-input $i $(pactl get-default-sink)
-done
+exit 1
